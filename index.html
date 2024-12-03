@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Francois+One&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMS Layer with Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+     
+    <!-- Map container (top) -->
+    <div id="map">
+        
+    </div>
+    <!-- Gradient tag (initially hidden, will appear at specific coordinates) -->
+    <div id="region">
+                <p>France Agriculture Crops : Saint Jean de Sauves</p>
+    </div>
+    
+    <!-- Bottom Panel to Display Information and Coordinates -->
+    <div id="side-panel">
+         <!-- Button to toggle the side panel -->
+    <button id="toggle-btn">
+        <span id="arrow">⏵</span>
+    </button>
+        <div id="info">
+            <h3>Feature Information</h3>
+            <!-- Injected content goes here, e.g., GeoServer feature info -->
+        </div>
+        <div id="coordinates">
+            <p>Latitude: <span id="lat-coord"></span></p>
+            <p>Longitude: <span id="lon-coord"></span></p>
+        </div>
+        <!-- HTML to include the Legend -->
+         <!-- <img id="legend-image" alt="Layer Legend" /> -->
+
+    </div>
+
+   
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+    <script>
+      
+
+    
+
+    </script>
+</body>
+</html>

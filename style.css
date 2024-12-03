@@ -1,0 +1,327 @@
+/* General body styling */
+body {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    font-family: "Rubik Mono One", monospace;
+    height: 100vh;
+    overflow: hidden;
+    position: relative; /* Positioning context for overlay */
+}
+/* Map container styling */
+#map {
+    width: 100%;
+    height: 100vh; /* Full height of the viewport */
+    background-color: #f0f0f0;
+    z-index: 0; /* Ensure the map is behind the side panel */
+}
+
+/* Styling for the region tag */
+#region {
+    position: absolute;
+    top: 20px; /* Adjust the position from the top */
+    right: 20px; /* Adjust the position from the right */
+    background: linear-gradient(to left,#026e61b0, #ffffffae ); /* Gradient from right to left */
+    color: rgb(26, 26, 26);
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-family: "Rubik Mono One", monospace;
+    z-index: 1000; /* Make sure it's above the map */
+}
+
+/* Optional styling for text inside the tag */
+#region p {
+    margin: 0;
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+
+/* Container for the info and coordinates panel */
+#side-panel {
+    width: 300px; /* Fixed width of the panel */
+    background-color: #afedcd;
+    padding: 20px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    position: absolute; /* Fix the panel in place */
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full height */
+    z-index: 1; /* Panel above the map */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for sliding effect */
+}
+
+/* Info section styling */
+#info {
+    background: #026e62;
+    color: #000000;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Coordinates section styling */
+#coordinates {
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+/* Toggle Button Styling inside the side panel */
+#toggle-btn {
+    position: absolute;
+    top: 50%; /* Vertically centered */
+    right: -40px; /* Positioned at the far right of the panel */
+    transform: translateY(-50%); /* Adjust for perfect centering */
+    background-color: #026e61c7; /* Matching the side panel theme */
+    color: #fff;
+    width: 50px; /* Width and height to make it a circle */
+    height: 50px;
+    border: none;
+    border-radius: 80%; /* Make it circular */
+    cursor: pointer;
+    z-index: 2; /* Button above other content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the arrow inside the circle */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+/* Arrow inside the button */
+#arrow {
+    font-weight: 500;
+    font-size: 24px;
+}
+
+/* When the side panel is hidden, change the arrow's direction */
+#side-panel.hidden + #toggle-btn #arrow {
+    content: "⏴"; /* Update arrow to left when panel is hidden */
+}
+
+/* Button hover effect */
+#toggle-btn:hover {
+    background-color: #014d3e; /* Darker shade on hover */
+    transform: scale(1.2); /* Slightly enlarge the button */
+}
+
+/* Button active effect */
+#toggle-btn:active {
+    background-color: #013b2d; /* Even darker shade when clicked */
+    transform: scale(0.98); /* Slightly shrink the button */
+}
+
+/* Hide the side panel when it's not needed */
+#side-panel.hidden {
+    transform: translateX(-95%); /* Slide the panel out of view but leave a 5% gap */
+}
+
+
+
+
+
+
+/* -----------------------the ZOOM STYLE-----------------------------------*/
+
+
+/* Resize the leaflet-bar */
+.leaflet-touch .leaflet-bar {
+    position: relative;
+    top: 50%; /* Center vertically */
+    transform: translateY(500%);
+    right: -2700%;
+
+    z-index: 30; /* Ensure it stays above other elements */
+   
+    
+}
+
+
+
+
+/* Optional: Style the individual items inside the leaflet control or bar */
+.leaflet-control-layers,
+.leaflet-bar {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 5px;
+    border-radius: 8px;
+}
+
+/* Optional: Style buttons inside the leaflet-bar */
+.leaflet-bar a {
+    background-color: #026e62; /* Custom background for buttons */
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border-radius: 50%; /* Circular buttons */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+}
+
+/* Optional: Hover effect for buttons */
+.leaflet-bar a:hover {
+    background-color: #014d3e; /* Darker shade on hover */
+}
+
+/* Optional: Active effect for buttons */
+.leaflet-bar a:active {
+    background-color: #013b2d; /* Even darker shade when clicked */
+}
+
+
+/*-------------------------------INFORMATION STYLE---------------------------*/
+
+
+
+/* Style the entire list container */
+#side-panel ul {
+    list-style: none; /* Remove the default bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    background-color: #f9f9f9; /* Light background for the information */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* Add padding for better spacing */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Style each list item */
+#side-panel ul li {
+    font-size: 16px; /* Font size for the text */
+    margin-bottom: 10px; /* Space between list items */
+    line-height: 1.5; /* Add space between lines for readability */
+}
+
+/* Bold the labels */
+#side-panel ul li strong {
+    color: #026e62; /* Color for labels to make them stand out */
+    font-weight: 600; /* Make the label text bold */
+    margin-right: 10px; /* Space between label and value */
+}
+
+/* Style for the values */
+#side-panel ul li span {
+    color: #333; /* Dark color for the value text */
+    font-weight: 400; /* Slightly lighter font weight for the values */
+}
+
+/* Optionally, add a hover effect for the list items */
+#side-panel ul li:hover {
+    background-color: #e6f7f3; /* Light background change on hover */
+    cursor: pointer; /* Change cursor to pointer when hovering */
+    border-radius: 5px; /* Slightly round corners on hover */
+}
+
+/* Add a border and padding for each list item */
+#side-panel ul li {
+    border-bottom: 1px solid #ddd; /* Light border between items */
+    padding: 8px 0; /* Add some padding inside each item */
+}
+
+/* Style for the last list item (remove bottom border) */
+#side-panel ul li:last-child {
+    border-bottom: none; /* Remove border for the last item */
+}
+
+
+
+/*------------------------------- LAYER CONTROL STYLE---------------------------*/
+
+
+/* Style the main container for the layer control */
+.leaflet-control-layers.leaflet-control {
+    transform: translateY(80%); /* Adjust for perfect centering */
+    background-color: rgba(0, 0, 0, 0.411) !important; /* White background */
+    border: 1px solid #ccc !important; /* Light border */
+    border-radius: 10px !important; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2) !important; /* Drop shadow */
+    padding: 10px !important;
+    color: #333 !important; /* Dark text color */
+    font-family: Arial, sans-serif !important;
+    font-size: 14px !important;
+    max-width: 200px !important;
+}
+
+/* Style the toggle button */
+.leaflet-control-layers-toggle {
+    background-color: #026e61b0 !important; /* Green background for the toggle */
+    border-radius: 50% !important;
+    width: 30px !important;
+    height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    z-index: 1000 !important; /* Ensure it appears above other elements */
+
+}
+.leaflet-touch .leaflet-control-layers {
+    width: auto !important;
+    top: -55% !important; /* Slightly lower than the middle */
+    right: 20px !important;
+    transform: translateY(120%) !important; /* Centers on the adjusted 'top' */
+
+    z-index: 1000 !important;
+}
+
+
+/* Prevents closing when interacting with the layers list */
+.leaflet-control-layers-list {
+    pointer-events: all !important; /* Allow interaction with checkboxes */
+}
+
+
+/* Style for base map radio button section */
+.leaflet-control-layers-base label {
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 10px !important;
+    color: #ffffff !important; /* Text color */
+}
+
+.leaflet-control-layers-base input[type="radio"] {
+    margin-right: 8px !important;
+}
+
+/* Style for overlay checkbox section */
+.leaflet-control-layers-overlays label {
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 10px !important;
+    color: #ffffff !important; /* Text color */
+}
+
+.leaflet-control-layers-overlays input[type="checkbox"] {
+    margin-right: 8px !important;
+}
+
+/* Style the separator line */
+.leaflet-control-layers-separator {
+    border-top: 1px solid #ddd !important;
+    margin: 10px 0 !important;
+}
+
+/* Style for layer names */
+.leaflet-control-layers span {
+    font-weight: bold !important;
+}
+
+/* Hover effect for labels */
+.leaflet-control-layers label:hover {
+    background-color: #f0f0f0 !important;
+    border-radius: 5px !important;
+}
+
