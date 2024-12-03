@@ -23,6 +23,6 @@ This project is a **web mapping application** displaying crop field data from sh
 
 
 ### Node.js Proxy 
-![Proxy Server startup ](Media/Proxy_Server (2).gif)
+![Proxy Server startup ](Media/Proxy_Server.gif)
 
 
